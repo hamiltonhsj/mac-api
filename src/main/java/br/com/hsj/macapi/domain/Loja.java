@@ -47,9 +47,16 @@ public class Loja extends Base {
 		this.numero = numero;
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Loja [id=%s, nome=%s, numero=%s]", id, nome, numero);
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Loja [id=%s, nome=%s, numero=%s, endereco=[%s]]", id, nome, numero, endereco.toString());
+	}
 }

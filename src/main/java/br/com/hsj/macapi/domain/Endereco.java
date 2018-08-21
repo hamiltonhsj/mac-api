@@ -70,4 +70,8 @@ public class Endereco extends Base {
 		this.estado = estado;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Endereco [id=%s, tipo=%s, logradouro=%s, numero=%s, bairro=%, cidade=%, estado=%]", id, tipo, logradouro, numero, bairro, cidade, estado);
+	}
 }
