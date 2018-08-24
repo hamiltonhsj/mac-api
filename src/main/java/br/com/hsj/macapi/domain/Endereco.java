@@ -1,5 +1,6 @@
 package br.com.hsj.macapi.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
@@ -10,16 +11,28 @@ public class Endereco extends Base {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Column(nullable = false)
 	private String logradouro;
 	
+	@Column(nullable = false)
 	private String tipo;
 	
+	@Column(nullable = false)
 	private Integer numero;
 	
+	@Column(nullable = false)
 	private String bairro;
 	
+	@Column(nullable = false)
+	private String cep;
+
+	@Column(nullable = true)
+	private String complemento;
+
+	@Column(nullable = false)
 	private String cidade;
 	
+	@Column(nullable = false)
 	private String estado;
 
 	public String getLogradouro() {
@@ -70,8 +83,28 @@ public class Endereco extends Base {
 		this.estado = estado;
 	}
 
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Endereco [id=%s, tipo=%s, logradouro=%s, numero=%s, bairro=%, cidade=%, estado=%]", id, tipo, logradouro, numero, bairro, cidade, estado);
+		return String.format(
+				"Endereco [logradouro=%s, tipo=%s, numero=%s, bairro=%s, cep=%s, complemento=%s, cidade=%s, estado=%s]",
+				logradouro, tipo, numero, bairro, cep, complemento, cidade, estado);
 	}
+
+	
 }

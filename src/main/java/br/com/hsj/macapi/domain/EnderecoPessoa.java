@@ -1,5 +1,7 @@
 package br.com.hsj.macapi.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,7 +14,11 @@ public class EnderecoPessoa {
 	private EnderecoPessoaPK id;
 
 	@Enumerated(EnumType.ORDINAL)
+	@Column(nullable = false)
 	private TipoEndereco tipo;
+	
+	@Embedded
+	private Auditoria auditoria;
 
 	public EnderecoPessoaPK getId() {
 		return id;
@@ -28,6 +34,14 @@ public class EnderecoPessoa {
 
 	public void setTipo(TipoEndereco tipo) {
 		this.tipo = tipo;
+	}
+	
+	public Auditoria getAuditoria() {
+		return auditoria;
+	}
+
+	public void setAuditoria(Auditoria auditoria) {
+		this.auditoria = auditoria;
 	}
 
 	@Override

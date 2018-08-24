@@ -1,5 +1,6 @@
 package br.com.hsj.macapi.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -11,6 +12,7 @@ public class Integrante extends Base {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Column(nullable = false)
 	private String nome;
 	
 	@ManyToOne

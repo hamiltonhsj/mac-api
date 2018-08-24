@@ -1,14 +1,12 @@
 package br.com.hsj.macapi.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
+import javax.persistence.Embedded;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @MappedSuperclass
 public class Base implements Serializable {
@@ -22,54 +20,23 @@ public class Base implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Integer id;
 	
-	protected String criadoPor;
+	@Embedded
+	private Auditoria auditoria;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date criadoEm;
-	
-	protected String atualizadoPor;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date atualizadoEm;
-
-	public String getCriadoPor() {
-		return criadoPor;
-	}
-
-	public void setCriadoPor(String criadoPor) {
-		this.criadoPor = criadoPor;
-	}
-
-	public Date getCriadoEm() {
-		return criadoEm;
-	}
-
-	public void setCriadoEm(Date criadoEm) {
-		this.criadoEm = criadoEm;
-	}
-
-	public String getAtualizadoPor() {
-		return atualizadoPor;
-	}
-
-	public void setAtualizadoPor(String atualizadoPor) {
-		this.atualizadoPor = atualizadoPor;
-	}
-
-	public Date getAtualizadoEm() {
-		return atualizadoEm;
-	}
-
-	public void setAtualizadoEm(Date atualizadoEm) {
-		this.atualizadoEm = atualizadoEm;
-	}
-
 	public Integer getId() {
 		return id;
 	}
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Auditoria getAuditoria() {
+		return auditoria;
+	}
+
+	public void setAuditoria(Auditoria auditoria) {
+		this.auditoria = auditoria;
 	}
 
 	@Override

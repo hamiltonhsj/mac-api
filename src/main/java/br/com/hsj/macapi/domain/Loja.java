@@ -1,5 +1,6 @@
 package br.com.hsj.macapi.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,8 +13,10 @@ public class Loja extends Base {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Column(nullable = false)
 	private String nome;
 	
+	@Column(nullable = false)
 	private Integer numero;
 	
 	@ManyToOne  
