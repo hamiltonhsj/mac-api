@@ -25,12 +25,14 @@ public class Auditoria {
 	@PrePersist
     public void prePersist() {
 		criadoEm = LocalDateTime.now();
+		criadoPor = "hamilton.hsj@gmail.com";
 //		criadoPor = LoggedUser.get();
     }
  
     @PreUpdate
     public void preUpdate() {
     	atualizadoEm = LocalDateTime.now();
+    	atualizadoPor = "hamilton.hsj@gmail.com";
 //    	atualizadoPor = LoggedUser.get();
     }
     
