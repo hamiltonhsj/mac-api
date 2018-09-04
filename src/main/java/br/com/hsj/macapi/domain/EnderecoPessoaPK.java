@@ -16,17 +16,17 @@ public class EnderecoPessoaPK implements Serializable {
 
 	@ManyToOne  
 	@JoinColumn(name="integrante_id")
-	private Integrante integrante;
+	private Pessoa integrante;
 
 	@ManyToOne  
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 
-	public Integrante getIntegrante() {
+	public Pessoa getIntegrante() {
 		return integrante;
 	}
 
-	public void setIntegrante(Integrante integrante) {
+	public void setIntegrante(Pessoa integrante) {
 		this.integrante = integrante;
 	}
 

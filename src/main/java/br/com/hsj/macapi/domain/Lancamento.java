@@ -18,7 +18,7 @@ public class Lancamento extends Base {
 	
 	@ManyToOne  
 	@JoinColumn(name="integrante_id")
-	private Integrante integrante;
+	private Pessoa integrante;
 	
 	@ManyToOne  
 	@JoinColumn(name="tipo_lancamento_id")
@@ -33,11 +33,11 @@ public class Lancamento extends Base {
 	@Column(nullable = false)
 	private String descricao;
 
-	public Integrante getIntegrante() {
+	public Pessoa getIntegrante() {
 		return integrante;
 	}
 
-	public void setIntegrante(Integrante integrante) {
+	public void setIntegrante(Pessoa integrante) {
 		this.integrante = integrante;
 	}
 

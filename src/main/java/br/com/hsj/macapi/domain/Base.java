@@ -1,12 +1,15 @@
 package br.com.hsj.macapi.domain;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Embedded;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 @MappedSuperclass
 public class Base implements Serializable {
@@ -22,6 +25,23 @@ public class Base implements Serializable {
 	
 	@Embedded
 	private Auditoria auditoria;
+	
+	@PrePersist
+    public void prePersist() {
+		if (auditoria == null) {
+			auditoria = new Auditoria();
+		}
+		auditoria.setCriadoEm(LocalDateTime.now());
+		auditoria.setCriadoPor("hamilton.hsj@gmail.com");
+//		criadoPor = LoggedUser.get();
+    }
+ 
+    @PreUpdate
+    public void preUpdate() {
+    	auditoria.setAtualizadoEm(LocalDateTime.now());
+    	auditoria.setAtualizadoPor("hamilton.hsj@gmail.com");
+//    	atualizadoPor = LoggedUser.get();
+    }
 	
 	public Integer getId() {
 		return id;

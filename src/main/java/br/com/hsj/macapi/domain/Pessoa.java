@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Integrante extends Base {
+public class Pessoa extends Base {
 
 	/**
 	 * 

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-@Entity
+@Entity(name="tipo_lancamento")
 public class TipoLancamento extends Base {
 
 	/**

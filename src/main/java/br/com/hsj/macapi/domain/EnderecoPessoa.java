@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-@Entity
+@Entity(name="endereco_pessoa")
 public class EnderecoPessoa {
 	
 	@EmbeddedId

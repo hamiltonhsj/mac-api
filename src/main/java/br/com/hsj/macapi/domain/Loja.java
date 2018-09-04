@@ -16,7 +16,7 @@ public class Loja extends Base {
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private Integer numero;
 	
 	@ManyToOne  

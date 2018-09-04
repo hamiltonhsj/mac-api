@@ -11,4 +11,6 @@ import br.com.hsj.macapi.domain.Endereco;
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
 	public List<Endereco> findByLogradouro(String _logadouro);
+
+	public List<Endereco> findByCep(String _cep);
 }

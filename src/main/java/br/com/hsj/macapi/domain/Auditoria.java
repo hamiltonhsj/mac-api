@@ -22,20 +22,6 @@ public class Auditoria {
 	@Column(name="atualizado_em", updatable = true, nullable = true)
 	protected LocalDateTime atualizadoEm;
 	
-	@PrePersist
-    public void prePersist() {
-		criadoEm = LocalDateTime.now();
-		criadoPor = "hamilton.hsj@gmail.com";
-//		criadoPor = LoggedUser.get();
-    }
- 
-    @PreUpdate
-    public void preUpdate() {
-    	atualizadoEm = LocalDateTime.now();
-    	atualizadoPor = "hamilton.hsj@gmail.com";
-//    	atualizadoPor = LoggedUser.get();
-    }
-    
 	public String getCriadoPor() {
 		return criadoPor;
 	}
