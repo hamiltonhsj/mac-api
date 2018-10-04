@@ -14,8 +14,12 @@ public class LojaService {
 	@Autowired
 	private LojaRepository repo;
 	
-	public List<Loja> findAll() {
+	public List<Loja> buscarTodos() {
 		return repo.findAll();
 
+	}
+	
+	public Loja salvar(Loja _loja) {
+		return repo.save(_loja);
 	}
 }

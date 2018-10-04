@@ -1,7 +1,9 @@
 package br.com.hsj.macapi.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -19,7 +21,7 @@ public class Loja extends Base {
 	@Column(nullable = false, unique = true)
 	private Integer numero;
 	
-	@ManyToOne  
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)  
 	@JoinColumn(name="endereco_id")
 	private Endereco endereco;
 	

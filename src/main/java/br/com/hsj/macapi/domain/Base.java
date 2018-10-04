@@ -38,6 +38,9 @@ public class Base implements Serializable {
  
     @PreUpdate
     public void preUpdate() {
+    	if (auditoria == null) {
+			auditoria = new Auditoria();
+		}
     	auditoria.setAtualizadoEm(LocalDateTime.now());
     	auditoria.setAtualizadoPor("hamilton.hsj@gmail.com");
 //    	atualizadoPor = LoggedUser.get();

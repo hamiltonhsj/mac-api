@@ -10,10 +10,10 @@ import javax.persistence.PreUpdate;
 @Embeddable
 public class Auditoria {
 
-	@Column(name="criado_por", insertable = true, nullable = false)
+	@Column(name="criado_por", insertable = true, nullable = true)
 	protected String criadoPor;
 	
-	@Column(name="criado_em", insertable = true, nullable = false)
+	@Column(name="criado_em", insertable = true, nullable = true)
 	protected LocalDateTime criadoEm;
 	
 	@Column(name="atualizado_por", updatable = true, nullable = true)
