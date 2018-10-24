@@ -17,8 +17,8 @@ public class Lancamento extends Base {
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne  
-	@JoinColumn(name="integrante_id")
-	private Pessoa integrante;
+	@JoinColumn(name="pessoa_id")
+	private Pessoa pessoa;
 	
 	@ManyToOne  
 	@JoinColumn(name="tipo_lancamento_id")
@@ -32,14 +32,6 @@ public class Lancamento extends Base {
 	
 	@Column(nullable = false)
 	private String descricao;
-
-	public Pessoa getIntegrante() {
-		return integrante;
-	}
-
-	public void setIntegrante(Pessoa integrante) {
-		this.integrante = integrante;
-	}
 
 	public TipoLancamento getTipoLancamento() {
 		return tipoLancamento;
@@ -72,6 +64,19 @@ public class Lancamento extends Base {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Lancamento [pessoa=%s, tipoLancamento=%s, valor=%s, data=%s, descricao=%s]", pessoa,
+				tipoLancamento, valor, data, descricao);
+	}
 	
 }

@@ -13,49 +13,49 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.hsj.macapi.domain.Loja;
+import br.com.hsj.macapi.domain.Pessoa;
 import br.com.hsj.macapi.exception.BusinessException;
-import br.com.hsj.macapi.service.LojaService;
+import br.com.hsj.macapi.service.PessoaService;
 
 @RestController
-@RequestMapping(value="/lojas")
-public class LojaController {
-	
+@RequestMapping(value="/pessoas")
+public class PessoaController {
+
 	@Autowired
-	private LojaService lojaService;
-
+	private PessoaService pessoaService;
+	
 	@GetMapping
-	public ResponseEntity<List<Loja>> findAll() {
+	public ResponseEntity<List<Pessoa>> findAll() {
 		
-		return ResponseEntity.ok().body(lojaService.findAll());
+		return ResponseEntity.ok().body(pessoaService.findAll());
 	}
-
+	
 	@GetMapping(value="/{id}")
-	public ResponseEntity<Loja> find(@PathVariable Integer id) {
-		return ResponseEntity.ok().body(lojaService.find(id));
+	public ResponseEntity<Pessoa> find(@PathVariable Integer id) {
+		return ResponseEntity.ok().body(pessoaService.find(id));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> save(@RequestBody Loja _loja) throws BusinessException {
-		Loja loja = null;
+	public ResponseEntity<Void> save(@RequestBody Pessoa _pessoa) throws BusinessException {
+		Pessoa pessoa = null;
 
-		loja = lojaService.save(_loja);
+		pessoa = pessoaService.save(_pessoa);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(loja.getId()).toUri();
+				.path("/{id}").buildAndExpand(pessoa.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> update(@RequestBody Loja _loja, @PathVariable Integer id) throws BusinessException {
+	public ResponseEntity<Void> update(@RequestBody Pessoa _pessoa, @PathVariable Integer id) throws BusinessException {
 		
-		_loja.setId(id);
+		_pessoa.setId(id);
 		
-		_loja = lojaService.save(_loja);
+		_pessoa = pessoaService.save(_pessoa);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(_loja.getId()).toUri();
+				.path("/{id}").buildAndExpand(_pessoa.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();
 	}

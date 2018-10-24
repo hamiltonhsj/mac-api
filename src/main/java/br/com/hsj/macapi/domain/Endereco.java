@@ -34,7 +34,7 @@ public class Endereco extends Base {
 	
 	@Column(nullable = false)
 	private String estado;
-
+	
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -102,7 +102,7 @@ public class Endereco extends Base {
 	@Override
 	public String toString() {
 		return String.format(
-				"Endereco [logradouro=%s, tipo=%s, numero=%s, bairro=%s, cep=%s, complemento=%s, cidade=%s, estado=%s]",
+				"Endereco [logradouro=%s, tipo=%s, numero=%s, bairro=%s, cep=%s, complemento=%s, cidade=%s, estado=%s, tipoEndereco=%s]",
 				logradouro, tipo, numero, bairro, cep, complemento, cidade, estado);
 	}
 

@@ -48,7 +48,7 @@ public class RepositoryTest {
     	auditoria.setCriadoEm(LocalDateTime.now());
     	auditoria.setCriadoPor("teste");
     	
-    	endereco.setAuditoria(auditoria);
+//    	endereco.setAuditoria(auditoria);
     	
     	enderecoRepository.save(endereco);
     	
@@ -66,7 +66,7 @@ public class RepositoryTest {
     	auditoria.setCriadoEm(LocalDateTime.now());
     	auditoria.setCriadoPor("teste 2");
     	
-    	endereco.setAuditoria(auditoria);
+//    	endereco.setAuditoria(auditoria);
     	
     	enderecoRepository.save(endereco);
     }

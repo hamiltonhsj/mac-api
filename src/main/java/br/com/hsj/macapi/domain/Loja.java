@@ -3,8 +3,6 @@ package br.com.hsj.macapi.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -21,8 +19,7 @@ public class Loja extends Base {
 	@Column(nullable = false, unique = true)
 	private Integer numero;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)  
-	@JoinColumn(name="endereco_id")
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Endereco endereco;
 	
 	public Loja() {
@@ -40,6 +37,7 @@ public class Loja extends Base {
 		return nome;
 	}
 	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -62,6 +60,7 @@ public class Loja extends Base {
 
 	@Override
 	public String toString() {
-		return String.format("Loja [id=%s, nome=%s, numero=%s, endereco=[%s]]", id, nome, numero, endereco.toString());
+		return String.format("Loja [nome=%s, numero=%s, endereco=%s]", nome, numero, endereco);
 	}
+	
 }

@@ -23,26 +23,26 @@ public class Base implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Integer id;
 	
-	@Embedded
-	private Auditoria auditoria;
+//	@Embedded
+//	private Auditoria auditoria;
 	
 	@PrePersist
     public void prePersist() {
-		if (auditoria == null) {
-			auditoria = new Auditoria();
-		}
-		auditoria.setCriadoEm(LocalDateTime.now());
-		auditoria.setCriadoPor("hamilton.hsj@gmail.com");
+//		if (auditoria == null) {
+//			auditoria = new Auditoria();
+//		}
+//		auditoria.setCriadoEm(LocalDateTime.now());
+//		auditoria.setCriadoPor("hamilton.hsj@gmail.com");
 //		criadoPor = LoggedUser.get();
     }
  
     @PreUpdate
     public void preUpdate() {
-    	if (auditoria == null) {
-			auditoria = new Auditoria();
-		}
-    	auditoria.setAtualizadoEm(LocalDateTime.now());
-    	auditoria.setAtualizadoPor("hamilton.hsj@gmail.com");
+//    	if (auditoria == null) {
+//			auditoria = new Auditoria();
+//		}
+//    	auditoria.setAtualizadoEm(LocalDateTime.now());
+//    	auditoria.setAtualizadoPor("hamilton.hsj@gmail.com");
 //    	atualizadoPor = LoggedUser.get();
     }
 	
@@ -54,13 +54,13 @@ public class Base implements Serializable {
 		this.id = id;
 	}
 	
-	public Auditoria getAuditoria() {
-		return auditoria;
-	}
-
-	public void setAuditoria(Auditoria auditoria) {
-		this.auditoria = auditoria;
-	}
+//	public Auditoria getAuditoria() {
+//		return auditoria;
+//	}
+//
+//	public void setAuditoria(Auditoria auditoria) {
+//		this.auditoria = auditoria;
+//	}
 
 	@Override
 	public int hashCode() {
