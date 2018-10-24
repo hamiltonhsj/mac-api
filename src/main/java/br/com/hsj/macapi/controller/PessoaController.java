@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.hsj.macapi.domain.Loja;
 import br.com.hsj.macapi.domain.Pessoa;
 import br.com.hsj.macapi.exception.BusinessException;
 import br.com.hsj.macapi.service.PessoaService;
@@ -28,6 +29,15 @@ public class PessoaController {
 	public ResponseEntity<List<Pessoa>> findAll() {
 		
 		return ResponseEntity.ok().body(pessoaService.findAll());
+	}
+
+	@GetMapping(value="/loja/{id}")
+	public ResponseEntity<List<Pessoa>> findAll(@PathVariable Integer id) {
+		
+		Loja loja = new Loja();
+		loja.setId(id);
+		
+		return ResponseEntity.ok().body(pessoaService.findByLoja(loja));
 	}
 	
 	@GetMapping(value="/{id}")

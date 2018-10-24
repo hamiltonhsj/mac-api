@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import br.com.hsj.macapi.domain.Loja;
 import br.com.hsj.macapi.domain.Pessoa;
 import br.com.hsj.macapi.exception.BusinessException;
 import br.com.hsj.macapi.exception.ObjectNotFoundException;
@@ -21,6 +22,11 @@ public class PessoaService {
 	public List<Pessoa> findAll() {
 		return repo.findAll();
 
+	}
+
+	public List<Pessoa> findByLoja(Loja _loja) {
+		return repo.findByLoja(_loja);
+		
 	}
 	
 	public Pessoa save(Pessoa _pessoa) throws BusinessException {
