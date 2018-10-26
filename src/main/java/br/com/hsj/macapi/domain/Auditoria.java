@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 
 @Embeddable
 public class Auditoria {

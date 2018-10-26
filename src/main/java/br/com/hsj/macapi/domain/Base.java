@@ -1,9 +1,7 @@
 package br.com.hsj.macapi.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-import javax.persistence.Embedded;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
