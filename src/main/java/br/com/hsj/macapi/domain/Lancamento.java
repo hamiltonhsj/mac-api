@@ -8,6 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
 @Entity
 public class Lancamento extends Base {
 
@@ -16,6 +22,7 @@ public class Lancamento extends Base {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@ManyToOne  
 	@JoinColumn(name="pessoa_id")
 	private Pessoa pessoa;
@@ -24,9 +31,10 @@ public class Lancamento extends Base {
 	@JoinColumn(name="tipo_lancamento_id")
 	private TipoLancamento tipoLancamento;
 	
-	@Column(nullable = false, scale = 2)
+	@Column(nullable = false, scale = 2, precision = 2)
 	private BigDecimal valor;
 	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(nullable = false)
 	private LocalDate data;
 	
